@@ -45,10 +45,10 @@ fi
 	cd ..
 	mkdir servers
 	mkdir managerfiles
-	wget https://raw.githubusercontent.com/plutonmania16/fivem-gestionnaire-serveur/master/manager.sh
+	wget https://raw.githubusercontent.com/plutonmania16/fivem-gestionnaire-serveur/main/manager.sh
 	cd ./managerfiles
-	wget https://raw.githubusercontent.com/plutonmania16/fivem-gestionnaire-serveur/master/managerfiles/default-config.cfg
-	wget https://raw.githubusercontent.com/plutonmania16/fivem-gestionnaire-serveur/master/managerfiles/used-ports.txt
+	wget https://raw.githubusercontent.com/plutonmania16/fivem-gestionnaire-serveur/main/managerfiles/default-config.cfg
+	wget https://raw.githubusercontent.com/plutonmania16/fivem-gestionnaire-serveur/main/managerfiles/used-ports.txt
 	cd ..
 	chmod -R 777 $installlocation
 	
