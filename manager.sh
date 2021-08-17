@@ -228,8 +228,8 @@ fi
 
 if [[ $updatemanager == "true" ]]; then
 
-managerurl="https://raw.githubusercontent.com/plutonmania16/fivem-gestionnaire-serveur/master/manager.sh"
-configurl="https://raw.githubusercontent.com/plutonmania16/fivem-gestionnaire-serveur/master/managerfiles/default-config.cfg"
+managerurl="https://raw.githubusercontent.com/plutonmania16/fivem-gestionnaire-serveur/main/manager.sh"
+configurl="https://raw.githubusercontent.com/plutonmania16/fivem-gestionnaire-serveur/main/managerfiles/default-config.cfg"
 
 rm ./manager.sh
 wget $managerurl
