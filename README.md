@@ -18,4 +18,4 @@ wget https://raw.githubusercontent.com/plutonmania16/fivem-gestionnaire-serveur/
 - Vous serez obligé de faire une mise à jour et une mise à niveau. Si vous voulez ignorer cela, parce que vous êtes un expert et que vous savez ce que vous faites, passez --no-update
 
 - Script créer à la base par @Slluxx
-- Traduit en francais et correction Script du Obsolete de Slluxx Par plutonmania16
+- Traduit en francais et correction du Script Obsolete de Slluxx Par plutonmania16
