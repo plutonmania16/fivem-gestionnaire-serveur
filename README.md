@@ -13,7 +13,7 @@
 ###  Installation  ###
 
 - Copiez et collez ce code pour démarrer l'installation. Vous pouvez alors choisir un chemin d'installation.
-wget https://raw.githubusercontent.com/plutonmania16/fivem-gestionnaire-serveur/main/init.sh && chmod +x ./init.sh && sudo ./init.sh
+- wget https://raw.githubusercontent.com/plutonmania16/fivem-gestionnaire-serveur/main/init.sh && chmod +x ./init.sh && sudo ./init.sh
 
 - Vous serez obligé de faire une mise à jour et une mise à niveau. Si vous voulez ignorer cela, parce que vous êtes un expert et que vous savez ce que vous faites, passez --no-update
 
