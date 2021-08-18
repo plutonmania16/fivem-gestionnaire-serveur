@@ -1,10 +1,9 @@
 #!/bin/bash
 clear
 if [ "$(whoami)" != "root" ]; then
-	echo "Veuillez exécuter ce script en tant que sudo ."
+	echo "Veuillez executer ce script en tant que sudo."
 	exit 1
 fi
-
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
@@ -21,12 +20,11 @@ fi
 
 
 
-OPTION=$(whiptail --title "Slluxx Base de gestionnaire-serveur traduit et correction PlutonMania" --menu "Choisissez votre option " 15 60 5 \
-"1" "Gérer les serveurs existants" \
+OPTION=$(whiptail --title "Host-Heberg - Gestion du serveur Fivem" --menu "Choisissez une option" 15 60 5 \
+"1" "Gerer les serveurs" \
 "2" "Ajouter un serveur" \
-"3" "Supprimer le serveur" \
-"4" "Mettre à jour FXdata" \
-"5" "Mettre à jour manager" 3>&1 1>&2 2>&3)
+"3" "Mettre a jour FxData" \
+"4" "Mettre a jour Manager" 3>&1 1>&2 2>&3)
 
 case "$OPTION" in
         1)
@@ -35,14 +33,14 @@ case "$OPTION" in
         2)
             add=true
             ;;
+        # 3)
+            # delete=true
+            # ;;
         3)
-            delete=true
-            ;;
-        4)
             update=true
             ;;
-        5)
-            updatemanager=true
+        4)
+            updatemanager=false
             ;;
         *)
             exit 1
@@ -58,23 +56,23 @@ esac
 
 if [[ $add == "true" ]]; then
 
-	question=$(whiptail --title "Nom du serveur" --inputbox "Choisissez un nouveau nom de serveur unique. SANS ESPACES! Ce ne sera pas le nom de serveur affiché en ligne ." 10 60 3>&1 1>&2 2>&3)
+	question=$(whiptail --title "Nom interne" --inputbox "Choisissez un nouveau nom de serveur. SANS ESPACES ! Ce ne sera pas le nom du serveur affiche en ligne." 10 60 3>&1 1>&2 2>&3)
 	exitstatus=$?
 	if [ $exitstatus = 0 ]; then
 	
 	    if [ -d "./servers/$question" ]; then
-	    	whiptail --title "ERROR" --msgbox "Ce nom est déjà utilisé ." 10 60
+	    	whiptail --title "ERREUR" --msgbox "Ce nom est deja utilise." 10 60
 		./manager.sh
 	    fi
 	    
 	    if echo $question | grep -q " "; then
-	    	whiptail --title "ERROR" --msgbox "Veuillez ne pas utiliser d'espaces ." 10 60
+	    	whiptail --title "ERREUR" --msgbox "Veuillez ne pas utiliser d'espaces." 10 60
 			./manager.sh
 		fi
 	    
 	    git clone https://github.com/citizenfx/cfx-server-data.git ./servers/$question
-		
-		cp /home/fivem/managerfiles/logo.png /home/fivem/servers/$question											  														   
+	    #copies the Host-Heberg logo in the server folder
+	    cp /home/fivem/managerfiles/logo.png /home/fivem/servers/$question
 
 		# creating config file
 		port=30120
@@ -84,33 +82,33 @@ if [[ $add == "true" ]]; then
 	    done
 	    clear
 	    
-	    port=$(whiptail --title "Choisissez le port du serveur de jeu " --inputbox "Ce port est déjà vérifié et n'est pas utilisé par un serveur de jeu. Veuillez ne changer que si vous savez ce que vous faites !" 10 60 $port 3>&1 1>&2 2>&3)
+	    port=$(whiptail --title "Choisissez le port du serveur" --inputbox "Ce port est deja verifie et n'est pas utilise par un serveur de jeux. N'oubliez pas de demander au support d'ouvrir le port associe." 10 60 $port 3>&1 1>&2 2>&3)
 		exitstatus=$?
 		if [ $exitstatus = 0 ]; then
 			port=$port
 		else
-			echo "Vous avez Annuler ."
+			echo "Vous avez choisi Annuler."
 			exit 1
 		fi
 		
-		servername=$(whiptail --title "Choisissez le Nom du serveur" --inputbox "Choisissez un nom de serveur. Votre serveur sera répertorié dans le navigateur du serveur avec cela ." 10 60 3>&1 1>&2 2>&3)
+		servername=$(whiptail --title "Choisissez le nom du serveur de jeux" --inputbox "Choisissez un nom de serveur. Votre serveur sera repertorie dans le navigateur de serveur en ligne." 10 60 3>&1 1>&2 2>&3)
 		exitstatus=$?
 		if [ $exitstatus = 0 ]; then
 			servername=$servername
 		else
-			echo "Vous avez Annuler."
+			echo "Vous avez choisi Annuler."
 			exit 1
 		fi
 		
-		rcon=$(whiptail --title "Choississez le RCON password" --inputbox "Ce mot de passe est aléatoire ." 10 60 $(cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 10 | head -n 1) 3>&1 1>&2 2>&3)
+		rcon=$(whiptail --title "Choisissez le mot de passe RCON" --inputbox "Ce mot de passe est aleatoire." 10 60 $(cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 10 | head -n 1) 3>&1 1>&2 2>&3)
 		exitstatus=$?
 		if [ $exitstatus = 0 ]; then
 			rcon=$rcon
 		else
-			echo "Vous avez Annuler."
+			echo "Vous avez choisi Annuler."
 			exit 1
 		fi
-	
+		
 		license=$(whiptail --title "Entrez votre clee Fivem (obligatoire !)" --inputbox "keymaster.fivem.net" 10 60 3>&1 1>&2 2>&3)
 		exitstatus=$?
 		if [ $exitstatus = 0 ]; then
@@ -118,6 +116,8 @@ if [[ $add == "true" ]]; then
 		else
 			echo "Vous avez choisi Annuler."
 			exit 1
+		fi
+
 		
 		
 		cat ./managerfiles/default-config.cfg | \
@@ -127,7 +127,7 @@ if [[ $add == "true" ]]; then
 		sed "s/VAR_HOSTNAME/$servername/">>./servers/$question/config.cfg
 		
 	    echo "$port">>./managerfiles/used-ports.txt
-	    whiptail --title "SUCCESS" --msgbox "Votre serveur devrait être installé avec succès ." 10 60
+	    whiptail --title "SUCCES" --msgbox "Votre serveur a ete installe avec succes." 10 60
 	    ./manager.sh
 	else
 	    ./manager.sh
@@ -150,10 +150,10 @@ if [[ $delete == "true" ]]; then
 	for server in $serverpath/*; do
 	    if ! [ -d $server ]; then
 		if [ $server == "./servers/*" ]; then
-			whiptail --title "ERROR" --msgbox "Il n'y a pas de serveur pouvant être supprimé " 10 60
+			whiptail --title "ERREUR" --msgbox "Aucun serveur ne peut etre supprime" 10 60
 			./manager.sh
 		else
-			echo "$server n'est pas un répertoire, qu'est-ce qu'il fout ici ?"
+			echo "$server is not a directory, what the hell is it doing here?"
 			rm -v -f $server
 		fi
 	    else
@@ -163,7 +163,7 @@ if [[ $delete == "true" ]]; then
 		AUX+=1
 	    fi
 	done
-	delserver=$(whiptail --title "SUPPRIMER un serveur" --menu "Choisir un serveur à supprimer " 15 60 6 ${STR[@]} 3>&1 1>&2 2>&3)
+	delserver=$(whiptail --title "SUPPRIMER un serveur" --menu "Choisissez un serveur a supprimer" 15 60 6 ${STR[@]} 3>&1 1>&2 2>&3)
 	exitstatus=$?
 	if ! [ $exitstatus = 0 ]; then
 		./manager.sh
@@ -175,7 +175,7 @@ if [[ $delete == "true" ]]; then
 		rm -f -r ./$delserver
 		cd ..
 
-		whiptail --title "SUCCESS" --msgbox "Votre serveur devrait être supprimé avec succès ." 10 60
+		whiptail --title "SUCCES" --msgbox "Votre serveur a ete supprime avec succes." 10 60
 		./manager.sh
 	fi
 fi
@@ -191,7 +191,7 @@ if [[ $update == "true" ]]; then
 for server in ./servers/*; do
 		server="$(echo $server | sed 's,.*/,,')"
 		if screen -list | grep -q "$server"; then
-		    echo "AVANT DE POUVOIR METTRE À JOUR : ARRÊTER  -> $server"
+		    echo "BEFORE YOU CAN UPDATE: SHUTDOWN -> $server"
 		fi
 done
 for server in ./servers/*; do
@@ -202,19 +202,19 @@ for server in ./servers/*; do
 done
 
 
-masterfolder="https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/"
-newestfxdata="$(curl $masterfolder | grep '<a href' | tail -1 | awk -F[\>\<] '{print $3}')"
+#masterfolder="https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/"
+#newestfxdata="$(curl $masterfolder | grep '<a href' | tail -1 | awk -F[\>\<] '{print $3}')"
 # filter valid urls and take last one.
 
 rm -R ./fxdata
 mkdir fxdata
 cd fxdata
-wget ${masterfolder}${newestfxdata}fx.tar.xz 
+wget https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/3456-35a48b6a57d995930d87ad969b075fe50ed70ad6/fx.tar.xz
 tar xf fx.tar.xz
 rm ./fx.tar.xz
 cd ..
 chmod -R 777 ./*
-whiptail --title "SUCCESS" --msgbox "Mise à jour FX terminée " 10 60
+whiptail --title "SUCCES" --msgbox "Mise a jour de FX terminee" 10 60
 ./manager.sh
 fi
 
@@ -241,7 +241,7 @@ wget $configurl
 chmod +x ./default-config.cfg
 chmod +x ./manager.sh
 cd ..
-whiptail --title "SUCCESS" --msgbox "Mise à jour du gestionnaire terminée " 10 60
+whiptail --title "SUCCES" --msgbox "Mise a jour du Manager terminee" 10 60
 ./manager.sh
 fi
 
@@ -254,11 +254,11 @@ fi
 if [[ $manage == "true" ]]; then
 
 
-OPTION=$(whiptail --title "Gérer votre serveur " --menu "Choisis une option" 15 60 5 \
-"1" "Start" \
-"2" "Stop" \
-"3" "Restart" \
-"4" "Voir Console" 3>&1 1>&2 2>&3)
+OPTION=$(whiptail --title "Gestion du serveur" --menu "Choisissez une option" 15 60 5 \
+"1" "Demarrer" \
+"2" "Stopper" \
+"3" "Redemarrer" \
+"4" "Acces a la console" 3>&1 1>&2 2>&3)
 
 case "$OPTION" in
         1)
@@ -284,7 +284,7 @@ if [[ $start == "true" ]]; then
 	serverpath="./servers"
 	for server in $serverpath/*; do
 	    if ! [ -d $server ]; then
-		echo "$server n\'est pas un répertoire, qu\'est-ce qu\'il fout ici ? "
+		echo "$server is not a directory, what the hell is it doing here?"
 		rm -v -f $server
 	    else
 		server=${server:${#serverpath}}
@@ -293,19 +293,19 @@ if [[ $start == "true" ]]; then
 		AUX+=1
 	    fi
 	done
-	startserver=$(whiptail --title "Choisie un serveur" --menu "Choisie un serveur" 15 60 6 ${STR[@]} 3>&1 1>&2 2>&3)
+	startserver=$(whiptail --title "Choisissez un serveur" --menu "Choisissez un serveur" 15 60 6 ${STR[@]} 3>&1 1>&2 2>&3)
 	exitstatus=$?
 	if ! [ $exitstatus = 0 ]; then
 		./manager.sh
 	else
 		if ! screen -list | grep -q "$startserver"; then
 			cd ./servers/$startserver
-			screen -dmS $startserver ../../fxdata/run.sh +exec config.cfg
+			screen -dmSL $startserver ../../fxdata/run.sh +exec config.cfg
 			cd ../../
-			whiptail --title "SUCCESS" --msgbox "Serveur démarré." 10 60
+			whiptail --title "SUCCES" --msgbox "Le serveur a demarre." 10 60
 			./manager.sh
 		else
-			whiptail --title "ERROR" --msgbox "Ce serveur est déjà en cours d\'exécution ." 10 60
+			whiptail --title "ERREUR" --msgbox "Ce serveur est deja en cours d'exécution." 10 60
 			./manager.sh
 		fi
 	fi
@@ -320,7 +320,7 @@ if [[ $stop == "true" ]]; then
 	serverpath="./servers"
 	for server in $serverpath/*; do
 	    if ! [ -d $server ]; then
-		echo "$server n\'est pas un répertoire, qu\'est-ce qu\'il fout ici?"
+		echo "$server is not a directory, what the hell is it doing here?"
 		rm -v -f $server
 	    else
 		server=${server:${#serverpath}}
@@ -329,17 +329,17 @@ if [[ $stop == "true" ]]; then
 		AUX+=1
 	    fi
 	done
-	stopserver=$(whiptail --title "Choisie un serveur" --menu "Choisie un serveur" 15 60 6 ${STR[@]} 3>&1 1>&2 2>&3)
+	stopserver=$(whiptail --title "Choisissez un serveur" --menu "Choisissez un serveur" 15 60 6 ${STR[@]} 3>&1 1>&2 2>&3)
 	exitstatus=$?
 	if ! [ $exitstatus = 0 ]; then
 		./manager.sh
 	else
 		if screen -list | grep -q "$stopserver"; then
 		    	screen -S $stopserver -X at "#" stuff ^C
-			whiptail --title "SUCCESS" --msgbox "Serveur Arreté." 10 60
+			whiptail --title "SUCCES" --msgbox "Le serveur a été arrete." 10 60
 			./manager.sh
 		else
-			whiptail --title "ERROR" --msgbox "Ce serveur n\'est pas en cours." 10 60
+			whiptail --title "ERREUR" --msgbox "Le serveur n'est pas en cours d'execution." 10 60
 			./manager.sh
 		fi
 	fi
@@ -355,7 +355,7 @@ if [[ $restart == "true" ]]; then
 	serverpath="./servers"
 	for server in $serverpath/*; do
 	    if ! [ -d $server ]; then
-		echo "$server n\'est pas un répertoire, qu\'est-ce qu\'il fout ici ?"
+		echo "$server is not a directory, what the hell is it doing here?"
 		rm -v -f $server
 	    else
 		server=${server:${#serverpath}}
@@ -365,20 +365,20 @@ if [[ $restart == "true" ]]; then
 	    fi
 	done
 	
-	restart=$(whiptail --title "Choisie un serveur" --menu "Choisie un serveur" 15 60 6 ${STR[@]} 3>&1 1>&2 2>&3)
+	restart=$(whiptail --title "Choisissez un serveur" --menu "Choisissez un serveur" 15 60 6 ${STR[@]} 3>&1 1>&2 2>&3)
 	exitstatus=$?
 	if ! [ $exitstatus = 0 ]; then
 		./manager.sh
 	else
-		if screen -list | grep -q "$restart"; then
+		if screen -list | grep -q "$Redemarrer"; then
 			screen -S $restart -X at "#" stuff ^C
 			cd ./servers/$restart
-			screen -dmS $restart ../../fxdata/run.sh +exec config.cfg
+			screen -dmSL $restart ../../fxdata/run.sh +exec config.cfg
 			cd ../../
-			whiptail --title "SUCCESS" --msgbox "Serveur redémarré." 10 60
+			whiptail --title "SUCCES" --msgbox "Redemarrage du serveur." 10 60
 			./manager.sh
 		else
-			whiptail --title "ERROR" --msgbox "Ce serveur n\'est pas en cours." 10 60
+			whiptail --title "ERREUR" --msgbox "Le serveur n'est pas en cours d'execution." 10 60
 			./manager.sh
 		fi
 	fi
@@ -392,7 +392,7 @@ if [[ $console == "true" ]]; then
 	serverpath="./servers"
 	for server in $serverpath/*; do
 	    if ! [ -d $server ]; then
-		echo "$server n\'est pas un répertoire, qu\'est-ce qu\'il fout ici ?"
+		echo "$server is not a directory, what the hell is it doing here?"
 		rm -v -f $server
 	    else
 		server=${server:${#serverpath}}
@@ -401,17 +401,17 @@ if [[ $console == "true" ]]; then
 		AUX+=1
 	    fi
 	done
-	console=$(whiptail --title "Choisie un serveur" --menu "Choisie un serveur" 15 60 6 ${STR[@]} 3>&1 1>&2 2>&3)
+	console=$(whiptail --title "Choisissez un serveur" --menu "Choisissez un serveur" 15 60 6 ${STR[@]} 3>&1 1>&2 2>&3)
 	exitstatus=$?
 	if ! [ $exitstatus = 0 ]; then
 		./manager.sh
 	else
 		if screen -list | grep -q "$console"; then
-		    whiptail --title "REMEMBER" --msgbox "Pour quitter la console, ne quittez jamais ou utilisez CTRL + C. Cela fermera le serveur ! Au lieu de cela, maintenez la touche CTRL enfoncée et appuyez sur A,D!" 10 60
-		    screen -r $console
+		    whiptail --title "RAPPELLES !" --msgbox "Pour quitter la console, ne jamais utiliser la commande CTRL + C. Cela fermera le serveur ! Au lieu de cela utiliser CTRL + A et D !" 10 60
+		    sudo screen -r $console
 		    ./manager.sh
 		else
-			whiptail --title "ERROR" --msgbox "Ce serveur n\'est pas en cours.." 10 60
+			whiptail --title "ERREUR" --msgbox "Le serveur n'est pas en cours d'execution." 10 60
 			./manager.sh
 		fi
 	fi
