@@ -15,7 +15,9 @@
 - Copiez et collez ce code pour démarrer l'installation. Vous pouvez alors choisir un chemin d'installation.
 - wget https://raw.githubusercontent.com/plutonmania16/fivem-gestionnaire-serveur/main/init.sh && chmod +x ./init.sh && sudo ./init.sh
 
-home/fivem appeller votre dossier comme cela ensuite s'il vous marque :
+-home/fivem 
+Appeller votre dossier comme cela 
+ensuite s'il vous marque :
 Pour démarrer le gestionnaire, utilisez sudo /home/fivemmanager.sh
 corriger par :
 Pour démarrer le gestionnaire, utilisez sudo /home/fivem/manager.sh
