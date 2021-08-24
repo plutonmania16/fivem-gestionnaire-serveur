@@ -1,16 +1,49 @@
 
-###  Gestionnaire de serveur Fivem ###
+###  Gestionnaire de Multiples serveurs Fivem ###
 
 - Cela vous aidera à configurer plusieurs serveurs FX en cinq minutes.
-    - Ajouter des serveurs
+    -  Ajouter des serveurs
     -  Supprimer des serveurs
     -  Démarrer, arrêter et redémarrer les serveurs
     -  Voir la console
     -  Mise à jour vers la dernière version FX.
     -  Guides à travers tout
     -  GUI pour tout.
+    
 
-###  Installation  ###
+############  Installation Serveur Fivem  ################
+
+
+1. Mise à jour de debian 10
+2. Installation du serveur MySQL
+3. Installation de phpMyAdmin
+4. Création d’un utilisateur
+5. L’installation d’FXserver
+
+- apt install sudo
+- apt update
+- apt upgrade
+- apt install mariadb-client mariadb-server
+- apt-get install phpmyadmin
+- selectionner apache2
+- choissiez 'non' pour la configuration 'dbconfig-common'
+
+Connecter vous a votre Base de donnés, pour voir si tout marche bien !
+http://#VOTRE_IP_SERVEUR#/phpmyadmin/
+Si phpMyAdmin ne s’affiche pas, utilisez la commande suivante pour créer le lien symbolique:
+
+<ln -s /usr/share/phpmyadmin/ /var/www/html/phpmyadmin>
+
+Si vous avez une erreur lors de la connexion avec l’utilisateur root, faites cela :
+
+sudo mysql -u root
+use mysql;
+update user set plugin='' where User='root';
+flush privileges;
+\q
+
+- Creer votre utilisateur :
+adduser 'votrenom'
 
 - Copiez et collez ce code pour démarrer l'installation. Vous pouvez alors choisir un chemin d'installation.
 - wget https://raw.githubusercontent.com/plutonmania16/fivem-gestionnaire-serveur/main/init.sh && chmod +x ./init.sh && sudo ./init.sh
