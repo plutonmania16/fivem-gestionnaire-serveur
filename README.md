@@ -65,10 +65,10 @@ Sans Manager, pour start chaque serveur et tester :
 cd /home/fivem/servers/nomdevotreserveur/
 bash /home/fivem/fxdata/run.sh +exec /home/fivem/servers/nomdevotreserveur/config.cfg
 
-Pour démarer votre Manager plus vite que en tapant la commande , faites :
-- Creer un alias :
+Pour démarer votre Manager plus vite qu'en tapant la commande , faites un alias :
 - Exemple ma ligne de code pour lancer mon manager est [ sudo /home/fivem/manager.sh ]
-- moi je veut que juste en tapant par exemple 'GTA' que le manager s'ouvre !
+- Moi je veut, juste qu'en tapant par exemple 'GTA' , le manager s'ouvre !
+
 # Tu fait cette commande : 
 - alias GTA='sudo /home/fivem/manager.sh'
 
