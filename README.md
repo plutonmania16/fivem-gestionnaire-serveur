@@ -31,6 +31,13 @@ ou sans gestionnaire, pour start chaque serveur :
 cd /home/fivem/servers/nomdevotreserveur/
 bash /home/fivem/fxdata/run.sh +exec /home/fivem/servers/nomdevotreserveur/config.cfg
 
+- Creer un alias :
+- Exemple ma ligne de code pour lancer mon manager est [ sudo /home/fivem/manager.sh ]
+- moi je veut que juste ne tapant par exemple 'GTA' le manager s'ouvre !
+# Tu fait cette commande : alias GTA='sudo /home/fivem/manager.sh'
+
+° Voilà , plus qu'a écrire 'GTA' pour le lancer !
+
 
 - Script créer à la base par @Slluxx
 - Traduit en francais et correction du Script Obsolete de Slluxx Par plutonmania16
