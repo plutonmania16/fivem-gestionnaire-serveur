@@ -25,5 +25,12 @@
 
 - Vous serez obligé de faire une mise à jour et une mise à niveau. Si vous voulez ignorer cela, parce que vous êtes un expert et que vous savez ce que vous faites, passez --no-update
 
+Pour démarrer le gestionnaire, utilisez sudo /home/fivem/manager.sh
+
+ou sans gestionnaire, pour start chaque serveur :
+cd /home/fivem/servers/nomdevotreserveur/
+bash /home/fivem/fxdata/run.sh +exec /home/fivem/servers/nomdevotreserveur/config.cfg
+
+
 - Script créer à la base par @Slluxx
 - Traduit en francais et correction du Script Obsolete de Slluxx Par plutonmania16
