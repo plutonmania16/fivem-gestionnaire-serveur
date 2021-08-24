@@ -20,7 +20,7 @@ fi
 
 
 
-OPTION=$(whiptail --title "Host-Heberg - Gestion du serveur Fivem" --menu "Choisissez une option" 15 60 5 \
+OPTION=$(whiptail --title "Gestion du serveur Fivem" --menu "Choisissez une option" 15 60 5 \
 "1" "Gerer les serveurs" \
 "2" "Ajouter un serveur" \
 "3" "Mettre a jour FxData" \
@@ -209,7 +209,7 @@ done
 rm -R ./fxdata
 mkdir fxdata
 cd fxdata
-wget https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/3456-35a48b6a57d995930d87ad969b075fe50ed70ad6/fx.tar.xz
+wget https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/4304-e6242ce0c0aab30473a76eac9ff46466eb82e7de/fx.tar.xz # Mettre a jour avec votre artifact
 tar xf fx.tar.xz
 rm ./fx.tar.xz
 cd ..
@@ -230,7 +230,6 @@ if [[ $updatemanager == "true" ]]; then
 
 managerurl="https://raw.githubusercontent.com/plutonmania16/fivem-gestionnaire-serveur/main/manager.sh"
 configurl="https://raw.githubusercontent.com/plutonmania16/fivem-gestionnaire-serveur/main/managerfiles/default-config.cfg"
-
 rm ./manager.sh
 wget $managerurl
 chmod +x ./manager.sh
@@ -300,7 +299,7 @@ if [[ $start == "true" ]]; then
 	else
 		if ! screen -list | grep -q "$startserver"; then
 			cd ./servers/$startserver
-			screen -dmSL $startserver ../../fxdata/run.sh +exec config.cfg
+			screen -dmSL $startserver /home/fivem/fxdata/run.sh +exec config.cfg
 			cd ../../
 			whiptail --title "SUCCES" --msgbox "Le serveur a demarre." 10 60
 			./manager.sh
