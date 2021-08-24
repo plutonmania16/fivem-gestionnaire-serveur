@@ -59,7 +59,7 @@ adduser 'votrenom'
 - Vous serez obligé de faire une mise à jour et une mise à niveau. Si vous voulez ignorer cela, parce que vous êtes un expert et que vous savez ce que vous faites, passez --no-update
 
 ########################
-Pour démarrer le Manager, utilisez 'sudo /home/fivem/manager.sh'
+- Pour démarrer le Manager, utilisez 'sudo /home/fivem/manager.sh'
 
 Sans Manager, pour start chaque serveur et tester :
 cd /home/fivem/servers/nomdevotreserveur/
