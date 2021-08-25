@@ -78,11 +78,11 @@ Pour démarer votre Manager plus vite qu'en tapant la commande , faites un alias
 
 - Changer votre password 'root':
 
-SET PASSWORD FOR 'root'@'localhost' = PASSWORD('VotreMotDePasseActuel');
-UPDATE mysql.user SET authentication_string = PASSWORD('VotreMotDePasseActuel')   
+- SET PASSWORD FOR 'root'@'localhost' = PASSWORD('VotreMotDePasseActuel');
+- UPDATE mysql.user SET authentication_string = PASSWORD('VotreMotDePasseActuel')   
 
-WHERE User = 'root' AND Host = 'localhost';
-update user set password=PASSWORD("NouveauMotDePasse") where User='root';
+- WHERE User = 'root' AND Host = 'localhost';
+- update user set password=PASSWORD("NouveauMotDePasse") where User='root';
 
 #################################
 - Script créer à la base par @Slluxx
