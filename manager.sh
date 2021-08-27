@@ -372,7 +372,7 @@ if [[ $restart == "true" ]]; then
 		if screen -list | grep -q "$Redemarrer"; then
 			screen -S $restart -X at "#" stuff ^C
 			cd ./servers/$restart
-			screen -dmSL $restart ../../fxdata/run.sh +exec config.cfg
+			screen -dmSL $restart /home/fivem/fxdata/run.sh +exec config.cfg
 			cd ../../
 			whiptail --title "SUCCES" --msgbox "Redemarrage du serveur." 10 60
 			./manager.sh
