@@ -76,7 +76,7 @@ Pour démarer votre Manager plus vite qu'en tapant la commande , faites un alias
 - exemple :
 https://i.imgur.com/QPGpKML.png
 
--N'oublie pas de mettre aussi dans les fichiers '.bashrc' des tes profils utilisateurs
+-N'oublie pas de mettre aussi dans les fichiers '.bashrc' de tes profils utilisateurs
 -exemple :
 https://i.imgur.com/ltjOHSS.png
 
