@@ -25,16 +25,16 @@
 - etc/apt/sources.list file:
 - et colle ca :
 - 
-[
-deb http://deb.debian.org/debian stretch main
-deb-src http://deb.debian.org/debian stretch main
-
-deb http://deb.debian.org/debian stretch-updates main
-deb-src http://deb.debian.org/debian stretch-updates main
-
-deb http://security.debian.org/debian-security/ stretch/updates main
-deb-src http://security.debian.org/debian-security/ stretch/updates main
-]
+[ - 
+- deb http://deb.debian.org/debian stretch main
+- deb-src http://deb.debian.org/debian stretch main
+- 
+- deb http://deb.debian.org/debian stretch-updates main
+- deb-src http://deb.debian.org/debian stretch-updates main
+- 
+- deb http://security.debian.org/debian-security/ stretch/updates main
+- deb-src http://security.debian.org/debian-security/ stretch/updates main
+- ]
 
 - apt update
 - apt upgrade
