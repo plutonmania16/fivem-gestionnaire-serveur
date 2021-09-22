@@ -50,13 +50,13 @@ Si phpMyAdmin ne s’affiche pas, utilisez la commande suivante pour créer le l
 
 <ln -s /usr/share/phpmyadmin/ /var/www/html/phpmyadmin>
 
-Si vous avez une erreur lors de la connexion avec l’utilisateur root, faites cela :
+-Si vous avez une erreur lors de la connexion avec l’utilisateur root, faites cela :
 
-sudo mysql -u root
-use mysql;
-update user set plugin='' where User='root';
-flush privileges;
-\q
+- sudo mysql -u root
+- use mysql;
+- update user set plugin='' where User='root';
+- flush privileges;
+- \q
 
 - Creer votre utilisateur :
 adduser 'votrenom'
@@ -65,6 +65,7 @@ adduser 'votrenom'
 - wget https://raw.githubusercontent.com/plutonmania16/fivem-gestionnaire-serveur/main/init.sh && chmod +x ./init.sh && sudo ./init.sh
 
 - Important !!! , Appeller votre dossier comme cela  : "fivem" ce qui donnera : home/fivem 
+- a la place de  /home/fx/
 
 - Ensuite s'il vous marque :
 - Pour démarrer le gestionnaire, utilisez sudo /home/fivemmanager.sh
