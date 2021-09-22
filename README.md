@@ -70,7 +70,7 @@ Pour démarer votre Manager plus vite qu'en tapant la commande , faites un alias
 - Moi je veut, juste qu'en tapant par exemple 'GTA' , le manager s'ouvre !
 
 # Tu fait cette commande : 
-- alias GTA='sudo /home/fivem/manager.sh'
+- alias GTA='sudo /home/fivem/manager.sh' .
  MAIS elle ne marchera que pour la session actuelle pour la sauvegarder.
 - Va dans ton dossier 'root' ouvre ton fichier '.bashrc' et colle la ligne de ton alias mise plus haut.
 
