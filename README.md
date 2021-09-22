@@ -71,6 +71,12 @@ Pour démarer votre Manager plus vite qu'en tapant la commande , faites un alias
 
 # Tu fait cette commande : 
 - alias GTA='sudo /home/fivem/manager.sh'
+ MAIS elle ne marchera que pour la session actuelle pour la sauvegarder.
+- Va dans ton dossier 'root' ouvre ton fichier '.bashrc' et colle la ligne de ton alias mise plus haut.
+
+exemple :
+https://i.imgur.com/QPGpKML.png
+
 
 ° Voilà , plus qu'a écrire 'GTA' pour le lancer !
 
