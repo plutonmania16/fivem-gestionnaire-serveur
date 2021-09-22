@@ -41,7 +41,7 @@
 - apt install mariadb-client mariadb-server
 - apt-get install phpmyadmin
 - tar xvzf phpMyAdmin-4.9.1-english.tar.gz
-- selectionner apache2
+- selectionner apache2 avec la touche espace et valider
 - choissiez 'non' pour la configuration 'dbconfig-common'
 
 Connecter vous a votre Base de donnés, pour voir si tout marche bien !
