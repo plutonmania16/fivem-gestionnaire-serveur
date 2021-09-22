@@ -25,6 +25,9 @@
 - apt upgrade
 - apt install mariadb-client mariadb-server
 - apt-get install phpmyadmin
+- ou
+- wget https://files.phpmyadmin.net/phpMyAdmin/4.9.1/phpMyAdmin-4.9.1-english.tar.gz
+tar xvzf phpMyAdmin-4.9.1-english.tar.gz
 - selectionner apache2
 - choissiez 'non' pour la configuration 'dbconfig-common'
 
