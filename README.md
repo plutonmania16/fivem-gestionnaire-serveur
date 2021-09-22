@@ -21,12 +21,25 @@
 5. L’installation d’FXserver
 
 - apt install sudo
+- va la :
+- etc/apt/sources.list file:
+- et colle ca :
+- 
+[
+deb http://deb.debian.org/debian stretch main
+deb-src http://deb.debian.org/debian stretch main
+
+deb http://deb.debian.org/debian stretch-updates main
+deb-src http://deb.debian.org/debian stretch-updates main
+
+deb http://security.debian.org/debian-security/ stretch/updates main
+deb-src http://security.debian.org/debian-security/ stretch/updates main
+]
+
 - apt update
 - apt upgrade
 - apt install mariadb-client mariadb-server
 - apt-get install phpmyadmin
-- ou
-- wget https://files.phpmyadmin.net/phpMyAdmin/4.9.1/phpMyAdmin-4.9.1-english.tar.gz
 tar xvzf phpMyAdmin-4.9.1-english.tar.gz
 - selectionner apache2
 - choissiez 'non' pour la configuration 'dbconfig-common'
