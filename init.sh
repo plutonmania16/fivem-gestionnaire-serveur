@@ -54,5 +54,5 @@ fi
 	
 clear
 echo "Le processus d'installation est terminé ."
-echo "Pour démarrer le gestionnaire, utilisez 'sudo ${installlocation}manager.sh'."
+echo "Pour démarrer le gestionnaire, utilisez 'sudo ${installlocation}/manager.sh'."
 echo "Veuillez mettre à jour les données FX ."
