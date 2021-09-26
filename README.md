@@ -103,15 +103,5 @@ https://i.imgur.com/ltjOHSS.png
 ° Voilà , plus qu'a écrire 'GTA' pour le lancer !
 
 #################################
-
-- Changer votre password 'root':
-
-- SET PASSWORD FOR 'root'@'localhost' = PASSWORD('VotreMotDePasseActuel');
-- UPDATE mysql.user SET authentication_string = PASSWORD('VotreMotDePasseActuel')   
-
-- WHERE User = 'root' AND Host = 'localhost';
-- update user set password=PASSWORD("NouveauMotDePasse") where User='root';
-
-#################################
 - Script créer à la base par @Slluxx
 - Traduit en francais et correction et amélioration du Script Obsolete de Slluxx Par plutonmania16
