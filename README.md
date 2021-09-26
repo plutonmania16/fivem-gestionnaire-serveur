@@ -58,10 +58,10 @@ Si phpMyAdmin ne s’affiche pas, utilisez la commande suivante pour créer le l
 
 - sudo mysql -u root
 - use mysql;
-- SET PASSWORD FOR 'root'@'localhost' = PASSWORD('DplxIyl7JW');
-- UPDATE mysql.user SET authentication_string = PASSWORD('DplxIyl7JW')     WHERE User = 'root' AND Host = 'localhost';
+- SET PASSWORD FOR 'root'@'localhost' = PASSWORD('.....');
+- UPDATE mysql.user SET authentication_string = PASSWORD('......')     WHERE User = 'root' AND Host = 'localhost';
 - update user set plugin='' where User='root';
-- update user set password=PASSWORD("DplxIyl7JW") where User='root';
+- update user set password=PASSWORD(".......") where User='root';
 - flush privileges;
 - \q
 
