@@ -78,6 +78,9 @@ adduser 'votrenom'
 ########################
 - Pour démarrer le Manager, utilisez 'sudo /home/fivem/manager.sh'
 
+- Mettez a jour FXData
+
+
 Sans Manager, pour start chaque serveur et tester :
 cd /home/fivem/servers/nomdevotreserveur/
 bash /home/fivem/fxdata/run.sh +exec /home/fivem/servers/nomdevotreserveur/config.cfg
