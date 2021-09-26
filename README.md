@@ -38,6 +38,7 @@ COMMENCEMENT :
 - ]
 
 - apt upgrade
+- apt install screen
 - apt install mariadb-client mariadb-server
 
 - sudo apt-get update
