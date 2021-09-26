@@ -54,7 +54,6 @@ Si phpMyAdmin ne s’affiche pas, utilisez la commande suivante pour créer le l
 <ln -s /usr/share/phpmyadmin/ /var/www/html/phpmyadmin>
 
 -Si vous avez une erreur lors de la connexion avec l’utilisateur root, faites cela :
-
 - sudo mysql -u root
 - use mysql;
 - SET PASSWORD FOR 'root'@'localhost' = PASSWORD('.....');
