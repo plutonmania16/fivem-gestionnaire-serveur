@@ -21,7 +21,7 @@ fi
 sudo apt-get install whiptail git xz-utils -y
 
 
-installlocation=$(whiptail --title "Question" --inputbox "Choisissez un emplacement pour tout installer ." 10 60 /home/fx/ 3>&1 1>&2 2>&3)
+installlocation=$(whiptail --title "Question" --inputbox "Choisissez un emplacement pour tout installer ." 10 60 /home/fivem/ 3>&1 1>&2 2>&3)
 exitstatus=$?
 if [ $exitstatus = 0 ]; then
     if [ -d $installlocation ]; then
@@ -39,7 +39,7 @@ fi
 
     mkdir -p $installlocation/fxdata
 	cd $installlocation/fxdata
-	wget https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/4304-e6242ce0c0aab30473a76eac9ff46466eb82e7de/fx.tar.xz # au point de faire le plus récent. 
+	wget https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/4394-572b000db3f5a323039e0915dac64641d1db408e/fx.tar.xz # au point de faire le plus récent. 
 	tar xf fx.tar.xz
 	rm fx.tar.xz
 	cd ..
