@@ -79,7 +79,7 @@ adduser 'votrenom'
 - Pour démarrer le Manager, utilisez 'sudo /home/fivem/manager.sh'
 
 - Mettez a jour FXData
-
+- créer votre serveur 1 et suivez les instructions
 
 Sans Manager, pour start chaque serveur et tester :
 cd /home/fivem/servers/nomdevotreserveur/
