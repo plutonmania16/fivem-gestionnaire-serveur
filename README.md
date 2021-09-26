@@ -20,6 +20,8 @@
 4. Création d’un utilisateur
 5. L’installation d’FXserver
 
+COMMENCEMENT :
+- apt update
 - apt install sudo
 - va la :
 - etc/apt/sources.list file:
@@ -36,7 +38,6 @@
 - deb-src http://security.debian.org/debian-security/ stretch/updates main
 - ]
 
-- apt update
 - apt upgrade
 - apt install mariadb-client mariadb-server
 - apt-get install phpmyadmin
