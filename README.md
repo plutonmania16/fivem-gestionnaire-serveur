@@ -41,9 +41,9 @@ COMMENCEMENT :
 - apt install screen
 - apt install mariadb-client mariadb-server
 
-- apt-get update
-- apt-get upgrade
-- apt-get install phpmyadmin
+- sudo apt-get update
+- sudo apt-get upgrade
+- sudo apt-get install phpmyadmin
 
 - selectionner apache2 avec la touche espace et valider
 - choissiez 'non' pour la configuration 'dbconfig-common'
